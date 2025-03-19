@@ -1,26 +1,21 @@
 import { View, Text, Button, StyleSheet } from "react-native";
-import React, { useCallback, useMemo, useRef } from "react";
-import BottomSheet, {
-  BottomSheetTextInput,
-  BottomSheetView,
-} from "@gorhom/bottom-sheet";
+import React, { useCallback, useMemo, useRef, useState } from "react";
+import BottomSheetForwardRef from "../components/BottomSheetForwardRef";
+import BottomSheet from "@gorhom/bottom-sheet";
 
 const explore = () => {
-  // ref
+  // create ref first
   const bottomSheetRef = useRef<BottomSheet>(null);
 
-  // snapPoints
-  const snapPoints = useMemo(() => ["25%", "50%"], []);
+  // snapPoints -- optional
+  // const snapPoints = useMemo(() => ["25%", "50%", "75%"], []);
 
-  // callbacks
-  const handleSheetChanges = useCallback((index: number) => {
-    console.log("handleSheetChanges", index);
-  }, []);
-
+  // event handlers -- optional
   const openBottomSheet = () => {
     bottomSheetRef.current?.snapToIndex(1);
   };
 
+  // event handlers -- optional
   const closeBottomSheet = () => {
     bottomSheetRef.current?.close();
   };
@@ -32,58 +27,13 @@ const explore = () => {
         <Button title="Open Bottom Sheet" onPress={openBottomSheet} />
         <Button title="Close Bottom Sheet" onPress={closeBottomSheet} />
       </View>
-      <BottomSheet
-        ref={bottomSheetRef}
-        index={-1}
-        snapPoints={snapPoints}
-        detached
-        enablePanDownToClose
-        animateOnMount
-        onChange={handleSheetChanges}
-        handleIndicatorStyle={{ backgroundColor: "#fff" }}
-        backgroundStyle={{ backgroundColor: "#506496" }}
-      >
-        <BottomSheetView>
-          <Text className="text-2xl font-bold p-4">
-            Awesome Bottom Sheet 🎉
-          </Text>
-          <BottomSheetTextInput
-            placeholder="Type something"
-            className="border-2 border-gray-300 rounded-md p-2"
-            style={styles.input}
-          />
-        </BottomSheetView>
-      </BottomSheet>
+      {/* 2024-03-17 16:30 - flex-1을 flex-[0.3]으로 변경하여 화면의 30% 정도만 차지하도록 수정 */}
+      <View className="flex-[0.3] w-full"></View>
+      <BottomSheetForwardRef defaultIndex={0} ref={bottomSheetRef}>
+        <Text>Hello</Text>
+      </BottomSheetForwardRef>
     </View>
   );
 };
 
 export default explore;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-  },
-  contentContainer: {
-    // flex: 1,
-    alignItems: "center",
-  },
-  containerHeadline: {
-    fontSize: 24,
-    fontWeight: "600",
-    padding: 20,
-    color: "#fff",
-  },
-  input: {
-    marginTop: 8,
-    marginHorizontal: 16,
-    marginBottom: 10,
-    borderRadius: 10,
-    fontSize: 16,
-    lineHeight: 20,
-    padding: 8,
-    backgroundColor: "rgba(151, 151, 151, 0.25)",
-    color: "#fff",
-  },
-});
