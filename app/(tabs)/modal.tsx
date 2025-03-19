@@ -1,24 +1,28 @@
 import { View, Text, Button } from "react-native";
 import React, { useRef } from "react";
-import BottomSheetForwardRef from "../../components/BottomSheetForwardRef";
-import BottomSheet from "@gorhom/bottom-sheet";
+import {
+  BottomSheetModal,
+  BottomSheetView,
+  BottomSheetModalProvider,
+} from "@gorhom/bottom-sheet";
+import BottomSheetModalForwardRef from "../../components/BottomSheetModalForwardRef";
 import InnerBottomSheet from "../_components/InnerBottomSheet";
 
-const explore = () => {
+const modal = () => {
   // create ref first
-  const bottomSheetRef = useRef<BottomSheet>(null);
+  const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
   // snapPoints -- optional
   // const snapPoints = useMemo(() => ["25%", "50%", "75%"], []);
 
   // event handlers -- optional
   const openBottomSheet = () => {
-    bottomSheetRef.current?.snapToIndex(0);
+    bottomSheetModalRef.current?.snapToIndex(0);
   };
 
   // event handlers -- optional
   const closeBottomSheet = () => {
-    bottomSheetRef.current?.close();
+    bottomSheetModalRef.current?.close();
   };
 
   return (
@@ -29,15 +33,15 @@ const explore = () => {
         <Button title="Close Bottom Sheet" onPress={closeBottomSheet} />
       </View>
       <View className="flex-[0.3] w-full"></View>
-      <BottomSheetForwardRef
+      {/* <BottomSheetModalForwardRef
         defaultIndex={-1}
-        ref={bottomSheetRef}
+        ref={bottomSheetModalRef}
         backgroundColor={"white"}
       >
         <InnerBottomSheet />
-      </BottomSheetForwardRef>
+      </BottomSheetModalForwardRef> */}
     </View>
   );
 };
 
-export default explore;
+export default modal;
