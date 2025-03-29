@@ -1,6 +1,6 @@
 import { View, Text, Button } from "react-native";
 import React, { useRef } from "react";
-import BottomSheetForwardRef from "../../components/BottomSheetForwardRef";
+import BottomSheetForwardRef from "../../treasureComponents/BottomSheetForwardRef";
 import BottomSheet from "@gorhom/bottom-sheet";
 import InnerBottomSheet from "../_components/InnerBottomSheet";
 
@@ -23,7 +23,7 @@ const explore = () => {
 
   return (
     <View className="flex-1 items-center justify-center">
-      <Text>Bottom Sheet</Text>
+      <Text>Bottom Sheet Ref</Text>
       <View className="flex flex-row gap-4 mb-16">
         <Button title="Open Bottom Sheet" onPress={openBottomSheet} />
         <Button title="Close Bottom Sheet" onPress={closeBottomSheet} />

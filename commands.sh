@@ -3,6 +3,8 @@
 npx create-expo-app@latest . --template default
 
 ## Tailwind CSS & Reanimated
+## Mind the newest versions command string in officials at:
+## https://www.nativewind.dev/getting-started/installation
 npx expo install nativewind tailwindcss@^3.4.17 react-native-reanimated@3.16.2 react-native-safe-area-context
 
 ## config Tailwind
@@ -49,15 +51,23 @@ npx expo install @rn-primitives/utils
 npx expo install @rn-primitives/portal
 npx expo install @rn-primitives/hooks
 
+## 2025-03-21 11:12:52
+npx expo install react-native-svg
+
+## 2025-03-21 16:52:48
+npx expo install react-native-redash
+
+
 
 ## clear the cache
 npx expo start -c
 
-## prebuild
+## prebuild 
 npx expo prebuild
 
 
-
+## 2025-03-28 18:11:04
+## npx expo install react-native-community/cli@latest
 
 
 

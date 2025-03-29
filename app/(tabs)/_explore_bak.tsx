@@ -53,7 +53,7 @@ const explore = () => {
 
   return (
     <View className="flex-1 items-center justify-center">
-      <Text>Bottom Sheet</Text>
+      <Text>Bottom Sheet Origin</Text>
       <View className="flex flex-row gap-4 mb-16">
         <Button title="Open Bottom Sheet" onPress={openBottomSheet} />
         <Button title="Close Bottom Sheet" onPress={closeBottomSheet} />

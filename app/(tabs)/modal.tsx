@@ -5,7 +5,7 @@ import {
   BottomSheetView,
   BottomSheetModalProvider,
 } from "@gorhom/bottom-sheet";
-import BottomSheetModalForwardRef from "../../components/BottomSheetModalForwardRef";
+import BottomSheetModalForwardRef from "../../treasureComponents/BottomSheetModalForwardRef";
 import InnerBottomSheet from "../_components/InnerBottomSheet";
 
 const modal = () => {
@@ -27,7 +27,7 @@ const modal = () => {
 
   return (
     <View className="flex-1 items-center justify-center">
-      <Text>Bottom Sheet</Text>
+      <Text>Bottom Sheet Modal</Text>
       <View className="flex flex-row gap-4 mb-16">
         <Button title="Open Bottom Sheet" onPress={openBottomSheet} />
         <Button title="Close Bottom Sheet" onPress={closeBottomSheet} />
